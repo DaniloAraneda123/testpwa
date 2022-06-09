@@ -473,12 +473,15 @@
 
 </div>
 
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * The content above * * * * * * * * * * * -->
-<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
-<!-- * * * * * * * * * * and can be replaced. * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * End of Placeholder * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<hr>
+  <div *ngIf="data">{{data|json}}</div>
+<hr>
+<hr>
+  <div *ngIf="response">{{response|json}}</div>
+<hr>
 
-<router-outlet></router-outlet>
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <input formControlName="filedata" type="file" accept="image/*" capture="camera"/><br>
+  <input formControlName="title" type="text"> <br>
+  <button type="submit">Aceptar</button>
+</form>
