@@ -25,6 +25,7 @@ export class AppComponent implements OnInit, OnDestroy {
 	response: any;
 	db: PouchDB.Database<{}>;
 	subs: Subscription;
+	folder: any;
 
 	constructor(private _http: HttpClient) {
 		this.db = new PouchDB("files_db")
@@ -60,7 +61,7 @@ export class AppComponent implements OnInit, OnDestroy {
 		// let formData = new FormData();
 		// formData.append("title",this.form.get('title')!.value)
 		// formData.append("filedata",this.form.get('filedata')!.value)
-		console.log(this.form.value)
+		this.folder = this.form.value
 		this._http.post("https://a2g-pwa.sa.ngrok.io/test_1", this.form.value).subscribe({
 			next: (el) => {
 				let id = uuidv4()
